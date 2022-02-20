@@ -1,0 +1,30 @@
+.modal-window {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 13%;
+	left: 1%;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 10;
+	background: linear-gradient(to bottom, #fff, #333);
+	transition: all 1s ease;
+	padding: 20px;
+}
+
+.modal-img {
+	width: 500px;
+	height: 500px;
+}
+
+.btn-modal {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 2rem;
+}
+
+.modal-window.show {
+	opacity: 1;
+	visibility: visible;
+}

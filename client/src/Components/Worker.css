@@ -1,0 +1,84 @@
+.specials {
+	overflow: hidden;
+	z-index: 1000;
+}
+.specials .nav-tabs {
+	border: 0;
+}
+.specials .nav-link {
+	border: 0;
+	padding: 12px 15px;
+	transition: 0.3s;
+	color: #fff;
+	border-radius: 0;
+	border-right: 2px solid #cda45e;
+	font-weight: 600;
+	font-size: 15px;
+	min-width: 200px;
+}
+.specials .nav-link:hover {
+	color: #cda45e;
+}
+.specials .nav-link.active {
+	color: #1a1814;
+	background: #cda45e;
+	border-color: #cda45e;
+}
+.specials .nav-link:hover {
+	border-color: #cda45e;
+}
+.specials .tab-pane.active {
+	-webkit-animation: fadeIn 0.5s ease-out;
+	animation: fadeIn 0.5s ease-out;
+}
+
+.worker {
+	border: 1px solid #cda45e;
+	margin: 5px;
+	color: #fff;
+}
+
+.worker:hover {
+	border-color: #cda45e;
+	background: #cda45e;
+}
+
+.img_fluid {
+	margin: 60px 25px;
+	max-width: 100%;
+	height: 150px;
+}
+
+.specials .details h3 {
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	color: #fff;
+}
+.specials .details p {
+	color: #aaaaaa;
+}
+.specials .details p:last-child {
+	margin-bottom: 0;
+}
+@media (max-width: 992px) {
+	.specials .nav-link {
+		border: 0;
+		padding: 15px;
+	}
+}
+
+.text h1 {
+	display: block;
+	text-shadow: 0 0 10px goldenrod, 0 0 20px orangered, 0 0 40px mediumblue, 0 0 80px purple;
+	will-change: filter, color;
+	filter: saturate(60%);
+	animation: flicker steps(100) 1s 1s infinite;
+}
+
+@keyframes flicker {
+	50% {
+		color: rgb(17, 14, 14);
+		filter: saturate(200%) hue-rotate(20deg);
+	}
+}
