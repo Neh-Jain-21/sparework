@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./ApplyWork.css";
 import { toast } from "react-toastify";
 
 export default function ApplyWork({ setApplyWorkVisible }) {
+	const userData = useSelector((state) => {
+		return state.authReducer;
+	});
+
 	const [workData, setWorkData] = useState([]);
 
 	useEffect(() => {
@@ -18,6 +23,22 @@ export default function ApplyWork({ setApplyWorkVisible }) {
 			}
 		})();
 	}, []);
+
+	const handleApplyWork = (work) => async () => {
+		const apply = window.confirm("Are you sure?");
+
+		if (apply) {
+			const response = await axios.post("http://localhost:5000/work/apply", { id: work._id, email: userData.email });
+
+			if (response.data.status) {
+				toast.success(response.data.message, { position: "bottom-left" });
+			} else if (!response.data.status) {
+				toast.error(response.data.message, { position: "bottom-left" });
+			} else if (response.status === 500) {
+				toast.error(response.data.message, { position: "bottom-left" });
+			}
+		}
+	};
 
 	return (
 		<>
@@ -38,6 +59,7 @@ export default function ApplyWork({ setApplyWorkVisible }) {
 									<th>Work Duration</th>
 									<th>Work Description</th>
 									<th>Pay Rate</th>
+									<th></th>
 								</tr>
 							</thead>
 						</table>
@@ -47,9 +69,14 @@ export default function ApplyWork({ setApplyWorkVisible }) {
 							<tbody>
 								{workData.map((value, index) => (
 									<tr key={index}>
-										{Object.keys(value).map((obj, index) => (
-											<th key={index}>{value[obj]}</th>
-										))}
+										<th>{value.name}</th>
+										<th>{value.work_type}</th>
+										<th>{value.work_duration}</th>
+										<th>{value.work_description}</th>
+										<th>{value.pay_rate}</th>
+										<th style={{ cursor: "pointer" }} onClick={handleApplyWork(value)}>
+											Apply
+										</th>
 									</tr>
 								))}
 							</tbody>

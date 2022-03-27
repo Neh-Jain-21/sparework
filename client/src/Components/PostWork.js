@@ -1,16 +1,20 @@
-import React from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./PostWork.css";
 import { toast } from "react-toastify";
 
 export default function PostWork({ setPostWorkVisible }) {
+	const userData = useSelector((state) => {
+		return state.authReducer;
+	});
+
 	const handleSubmit = async (event) => {
-		console.log(event);
 		try {
 			event.preventDefault();
 
 			const response = await axios.post("http://localhost:5000/work/addWork", {
 				name: event.target[1].value,
+				posted_by_email: userData.email,
 				work_type: event.target[2].value,
 				work_duration: event.target[3].value,
 				work_description: event.target[4].value,

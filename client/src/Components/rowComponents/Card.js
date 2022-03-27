@@ -1,21 +1,18 @@
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import ModalData from "../../Data/ModalData";
 import Carddata from "../../Data/Servicedata";
-import ModalWindow from "../ModalWindow";
 import "./Card.css";
 
-function Card({ setPostWorkVisible, setApplyWorkVisible }) {
-	const [index, setIndex] = useState(0);
-	const [isActive, setIsActive] = useState(false);
+function Card() {
+	const navigate = useNavigate();
 
 	const type = useSelector((state) => {
 		return state.authReducer.type;
 	});
 
-	const handleClick = (id) => {
-		setIsActive(true);
-		setIndex(id);
+	const handleClick = (i) => {
+		navigate("/work", { state: ModalData[i] });
 	};
 
 	return (
@@ -34,15 +31,7 @@ function Card({ setPostWorkVisible, setApplyWorkVisible }) {
 								<div className="card-front">
 									<figure>
 										<div className="img-bg"></div>
-										{/* <img
-											src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-											alt="Brohm Lake"
-										/> */}
-										<img
-											src={require(`../../img/photos/${item.image}`)}
-											className="card-img"
-											alt="Brohm Lake"
-										/>
+										<img src={require(`../../img/photos/${item.image}`)} className="card-img" alt="Brohm Lake" />
 										<figcaption>{item.name}</figcaption>
 									</figure>
 
@@ -55,26 +44,15 @@ function Card({ setPostWorkVisible, setApplyWorkVisible }) {
 											);
 										})}
 									</div>
-									{/* <div className="list">
-                <p className="list-group">{props.details[0]}</p>
-                <p className="list-group">{props.details[1]}</p>
-                <p className="list-group">{props.details[2]}</p>
-              </div>*/}
 								</div>
 
 								<div className="card-back">
 									<figure>
 										<div className="img-bg"></div>
-										<img
-											src={require(`../../img/photos/${item.image}`)}
-											className="card-img"
-											alt="Brohm Lake"
-										/>
+										<img src={require(`../../img/photos/${item.image}`)} className="card-img" alt="Brohm Lake" />
 									</figure>
 
-									<button onClick={() => handleClick(i)}>
-										{type === "Provider" ? "Post Work" : "Find Work"}
-									</button>
+									<button onClick={() => handleClick(i)}>{type === "Provider" ? "Post Work" : "Find Work"}</button>
 
 									<div className="design-container">
 										<span className="design design--1"></span>
@@ -89,19 +67,9 @@ function Card({ setPostWorkVisible, setApplyWorkVisible }) {
 								</div>
 							</div>
 						</div>
-						{/* <!-- /flip-card-container --> */}
 					</div>
 				);
 			})}
-
-			<ModalWindow
-				isActive={isActive}
-				setIsActive={setIsActive}
-				details={ModalData[index]}
-				type={type}
-				setPostWorkVisible={setPostWorkVisible}
-				setApplyWorkVisible={setApplyWorkVisible}
-			/>
 		</>
 	);
 }
