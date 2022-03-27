@@ -4,32 +4,32 @@ import WPright from "./rowComponents/WPright";
 import axios from "axios";
 
 export default function Worker() {
+	const [allData, setAllData] = useState({ providers: [], workers: [] });
 	const [currentData, setCurrentData] = useState([]);
 	const [value, setValue] = useState(0);
 	const [isProvider, setIsProvider] = useState(1);
 
 	useEffect(() => {
 		getData();
-	}, [isProvider]);
+	}, []);
 
 	const getData = async () => {
-		let response;
+		const response = await axios.get("http://localhost:5000/users/recent-users");
 
-		if (isProvider) {
-			response = await axios.get("http://localhost:5000/users/providers");
-		} else {
-			response = await axios.get("http://localhost:5000/users/workers");
+		if (response.data.status) {
+			setAllData(response.data.data);
+			setCurrentData(response.data.data.providers);
 		}
-
-		setCurrentData(response.data.data);
 	};
 
 	const setWorkers = async () => {
+		setCurrentData(allData.workers);
 		setIsProvider(0);
 		setValue(0);
 	};
 
 	const setProviders = async () => {
+		setCurrentData(allData.providers);
 		setIsProvider(1);
 		setValue(0);
 	};
@@ -56,10 +56,7 @@ export default function Worker() {
 								{currentData.map((item, i) => {
 									return (
 										<div key={i} className="nav-item">
-											<button
-												onClick={() => setValue(i)}
-												className={`nav-link ${i === value && "active"}`}
-											>
+											<button onClick={() => setValue(i)} className={`nav-link ${i === value && "active"}`}>
 												{item.name}
 											</button>
 										</div>

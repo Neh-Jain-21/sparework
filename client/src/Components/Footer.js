@@ -4,7 +4,7 @@ function Footer() {
 	return (
 		<>
 			{/* <!-- Remove the container if you want to extend the Footer to full width. --> */}
-			<div data-aos="zoom-out" className="container my-5">
+			<div data-aos="zoom-out" className="container-fluid footer">
 				{/* <!-- Footer --> */}
 				<footer
 					className="text-center text-lg-start text-white"
@@ -20,8 +20,7 @@ function Footer() {
 								<div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
 									<h6 className="text-uppercase mb-4 font-weight-bold">Sparework</h6>
 									<p className="text-white">
-										We hope untill here you have a good idea about sparework,but still if you don't
-										feel free to reach us.
+										We hope untill here you have a good idea about sparework,but still if you don't feel free to reach us.
 									</p>
 								</div>
 								{/* <!-- Grid column --> */}
@@ -74,61 +73,31 @@ function Footer() {
 									<h6 className="text-uppercase mb-4 font-weight-bold">Follow us</h6>
 
 									{/* <!-- Facebook --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#3b5998" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#3b5998" }} href="#!" role="button">
 										<i className="fab fa-facebook-f"></i>
 									</a>
 
 									{/* <!-- Twitter --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#55acee" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#55acee" }} href="#!" role="button">
 										<i className="fab fa-twitter"></i>
 									</a>
 
 									{/* <!-- Google --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#dd4b39" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#dd4b39" }} href="#!" role="button">
 										<i className="fab fa-google"></i>
 									</a>
 
 									{/* <!-- Instagram --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#ac2bac" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#ac2bac" }} href="#!" role="button">
 										<i className="fab fa-instagram"></i>
 									</a>
 
 									{/* <!-- Linkedin --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#0082ca" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#0082ca" }} href="#!" role="button">
 										<i className="fab fa-linkedin-in"></i>
 									</a>
 									{/* <!-- Github --> */}
-									<a
-										className="btn btn-primary btn-floating m-1"
-										style={{ backgroundColor: "#333333" }}
-										href="#!"
-										role="button"
-									>
+									<a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#333333" }} href="#!" role="button">
 										<i className="fab fa-github"></i>
 									</a>
 								</div>

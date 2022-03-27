@@ -25,6 +25,7 @@ const usersSchema = new mongoose.Schema(
 			default: "",
 		},
 		is_verified: { type: Boolean, required: false, default: false },
+		verify_id: { type: Number },
 		is_active: { type: Boolean, required: false, default: false },
 	},
 	{ timestamps: true }

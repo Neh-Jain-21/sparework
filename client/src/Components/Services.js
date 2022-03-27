@@ -11,11 +11,14 @@ function Services() {
 	return (
 		<>
 			<div className="container service mb-4 mt-5" id="Services">
-				<div data-aos="zoom-out" className="container mt-5 text-center">
-					<div className="text">
-						<h1 className="display-4">Services</h1>
-						<p>Check out the Services</p>
+				<div data-aos="zoom-out" className="container mt-5 text-center title">
+					<h1 className="display-4">Services</h1>
+					<div className="underline">
+						<div className="left-line"></div>
+						<div className="mid-icon"></div>
+						<div className="right-line"></div>
 					</div>
+					<p className="mt-4">Check out the Services</p>
 				</div>
 				<div className="row">
 					<Card setPostWorkVisible={setPostWorkVisible} setApplyWorkVisible={setApplyWorkVisible} />
@@ -24,7 +27,6 @@ function Services() {
 				{postWorkVisible && <PostWork setPostWorkVisible={setPostWorkVisible} />}
 				{applyWorkVisible && <ApplyWork setApplyWorkVisible={setApplyWorkVisible} />}
 			</div>
-			<hr className="text-white" />
 		</>
 	);
 }

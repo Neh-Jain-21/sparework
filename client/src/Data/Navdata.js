@@ -6,7 +6,7 @@ export default [
     activeStatus: true,
   },
   {
-    id: "About",
+    id: "aboutUs",
     name: "About",
     icon: "bi bi-person-fill",
     activeStatus: false,
@@ -18,7 +18,7 @@ export default [
     activeStatus: false,
   },
   {
-    id: "testimonial",
+    id: "review",
     name: "Review",
     icon: "bi bi-people-fill",
     activeStatus: false,

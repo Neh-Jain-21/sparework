@@ -1,0 +1,148 @@
+/* .aboutUs-content,
+.aboutUs .aboutUs-content p {
+  color: #fff;
+}
+
+.aboutUs-img {
+  width: 500px;
+  height: 500px;
+}
+
+.aboutUs-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutUs .aboutUs-content h3 {
+  font-weight: 600;
+  font-size: 26px;
+  color: #fff;
+} */
+/* .aboutUs .aboutUs-content ul {
+  list-style: none;
+  color: #fff;
+  padding: 0;
+} */
+/* .aboutUs .aboutUs-content .aboutUs-ul .aboutUs-li {
+  padding-bottom: 10px;
+}
+.aboutUs .aboutUs-content .aboutUs-ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #3fbbc0;
+}
+
+.aboutUs .aboutUs-content p:last-child {
+  margin-bottom: 0;
+} */
+
+.neo {
+	background: linear-gradient(to right, #311f60, #7353c5);
+	background-attachment: fixed;
+	height: 80vh;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.about-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* display: none; */
+	/* opacity: 0; */
+	transition: all 2s;
+	/* tra */
+	z-index: 100;
+}
+
+.about-img {
+	max-width: 300px;
+	max-height: 300px;
+	margin: 50px;
+}
+
+.about-content p {
+	color: #fff;
+	padding: 10px;
+	min-width: 710px;
+}
+
+.neo1 {
+	height: 400px;
+	width: 400px;
+	border-radius: 50px;
+	background: #311f60;
+	box-shadow: inset 23px 23px 46px #140c26, inset -23px -23px 46px #4e329a;
+	overflow: hidden;
+	/* text-align: center; */
+	position: absolute;
+	animation: anime 5s linear infinite;
+	transition: all 2s;
+	/*transform: translateX(50px);*/
+	z-index: 1;
+}
+
+.neo1:hover {
+	width: 90%;
+}
+
+.neo1:hover .about-content {
+	opacity: 1;
+}
+
+.middle {
+	max-width: 200px;
+	position: absolute;
+	top: 50%;
+	left: 52%;
+	transform: translate(-50%, -50%);
+}
+
+.neo1:hover .middle {
+	display: none;
+}
+
+.neo2 {
+	height: 400px;
+	width: 400px;
+	border-radius: 50px;
+	background: #311f60;
+	box-shadow: inset 23px 23px 46px #140c26, inset -23px -23px 46px #4e329a;
+	overflow: hidden;
+	text-align: center;
+	position: absolute;
+	right: 50px;
+	animation: anime 5s linear infinite;
+	transition: all 2s;
+}
+
+.neo2:hover {
+	width: 90%;
+}
+.neo h1 {
+	color: #fff;
+	margin: 180px 100px;
+	/* transition: all 10s; */
+	/* opacity: 1; */
+}
+
+.neo1:hover h1,
+.neo2:hover h1 {
+	/* opacity: 0;
+  visibility: hidden; */
+	display: none;
+}
+
+@keyframes anime {
+	0% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(0, 10px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}

@@ -1,7 +1,6 @@
 import React from "react";
 
 function WPright({ data }) {
-	// console.log(data);
 	return (
 		<>
 			<div className="tab-pane" id="tab-1">

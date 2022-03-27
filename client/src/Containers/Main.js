@@ -7,6 +7,7 @@ import Worker from "../Components/Worker.js";
 import Team from "../Components/Team.js";
 import FAQ from "../Components/FAQ.js";
 import Footer from "../Components/Footer.js";
+import AboutUs from "../Components/AboutUs";
 
 function Main() {
 	return (
@@ -14,6 +15,7 @@ function Main() {
 			<Navbar />
 			<Hero />
 			<About />
+			<AboutUs />
 			<Services />
 			<Testimonials />
 			<Worker />

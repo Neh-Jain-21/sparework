@@ -28,7 +28,11 @@ export default function ApplyWork({ setApplyWorkVisible }) {
 		const apply = window.confirm("Are you sure?");
 
 		if (apply) {
-			const response = await axios.post("http://localhost:5000/work/apply", { id: work._id, email: userData.email });
+			const response = await axios.post("http://localhost:5000/work/apply", {
+				id: work._id,
+				email: userData.email,
+				posted_by: work.posted_by_email,
+			});
 
 			if (response.data.status) {
 				toast.success(response.data.message, { position: "bottom-left" });

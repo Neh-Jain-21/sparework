@@ -1,5 +1,7 @@
 // MODELS
 const Works = require("../database/schema/work");
+// CONFIGS
+const sendEmail = require("../configs/mailer");
 
 class WorkController {
 	addWork = async (req, res) => {
@@ -108,14 +110,17 @@ class WorkController {
 
 	applyWork = async (req, res) => {
 		try {
-			if (!req.body.id || !req.body.email) {
+			if (!req.body.id || !req.body.email || !req.body.posted_by) {
 				res.status(200).send({
 					status: 0,
 					data: {},
 					message: "Please login first",
 				});
 			} else {
-				const alreadyApplied = await Works.findOne({ _id: req.body.id, applied_by_email: { $elemMatch: { email: req.body.email } } });
+				const alreadyApplied = await Works.findOne(
+					{ _id: req.body.id, applied_by_email: { $elemMatch: { email: req.body.email } } },
+					{ posted_by_email: 1 }
+				);
 
 				if (alreadyApplied) {
 					res.status(200).send({
@@ -125,6 +130,19 @@ class WorkController {
 					});
 				} else {
 					const applyWork = await Works.updateOne({ _id: req.body.id }, { $push: { applied_by_email: { email: req.body.email } } });
+
+					const callBack = async (error, info) => {
+						if (error) {
+							console.log(error);
+						}
+					};
+
+					sendEmail(
+						req.body.posted_by,
+						"Job alert",
+						`Hello,<br> Someone just applied to the job you posted. <br> Here is the email id: ${req.body.email}`,
+						callBack
+					);
 
 					if (applyWork) {
 						res.status(200).send({
@@ -142,6 +160,7 @@ class WorkController {
 				}
 			}
 		} catch (error) {
+			console.log(error);
 			res.status(500).send({
 				status: 0,
 				error: error.errors ? error.errors[Object.keys(error.errors)[0]].message : error,
